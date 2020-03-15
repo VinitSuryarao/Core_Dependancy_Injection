@@ -1,0 +1,26 @@
+﻿@*This Is Normal Controller DI Injection*@
+<h1>Dependancy Injection in Controller</h1>
+
+<h2>Data Of CLass A :- @ViewBag.DataA</h2>
+<h2>Data Of CLass B :- @ViewBag.DataB</h2>
+<h2>Data Of CLass C :- @ViewBag.DataC</h2>
+
+
+
+@* This Is View DI Injection
+    AddTransient Directly Inject Objects in View
+*@
+
+@inject Core_Dependancy_Injection.Repository.IA AObj
+@inject Core_Dependancy_Injection.Repository.IB BObj
+@inject Core_Dependancy_Injection.Repository.IC CObj
+
+@{
+    var AData = await AObj.GetDataA();
+    var BData = await BObj.GetDataB();
+    var CData = await CObj.GetDataC();
+}
+
+<h2>Data Of CLass A :- @AData</h2>
+<h2>Data Of CLass B :- @AData</h2>
+<h2>Data Of CLass C :- @AData</h2>
